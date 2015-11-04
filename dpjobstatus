@@ -1,0 +1,6 @@
+--dp job monerteing 
+
+select sid, serial#, sofar, totalwork,
+dp.owner_name, dp.state, dp.job_mode
+from gv$session_longops sl, gv$datapump_job dp
+where sl.opname = dp.job_name and sofar != totalwork;
