@@ -1,0 +1,2 @@
+select  OWNER,segment_name,sum(bytes/1024/1024/1024) GB
+ from dba_segments where segment_type in ('TABLE','TABLE PARTITION','SUB PARTITION') and  segment_name='&tablename' and OWNER='&owner' group by OWNER,SEGMENT_NAME ;
